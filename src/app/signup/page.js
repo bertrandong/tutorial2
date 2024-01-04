@@ -12,7 +12,12 @@ function Page() {
     const handleForm = async (event) => {
         event.preventDefault()
 
-        const { result, error } = await signUp(email, password);
+        const data = {
+            email: email,
+            password: password
+          }
+
+        const { result, error } = await addData('users', '1', data);
 
         if (error) {
             return console.log(error)
